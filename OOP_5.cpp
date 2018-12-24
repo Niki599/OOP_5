@@ -7,10 +7,7 @@ using namespace std;
 
 
 
-class Hero 
-{
-	
-	};
+
 
 
 class Spell 
@@ -106,7 +103,7 @@ void Kick::Searchs()
 		  endPosition=file.find(' ',endPosition)+1;
 		  endPosition=file.find(' ',endPosition);
 		  oldSpell=file.substr(beginPosition,endPosition-beginPosition);
-		  cout<<"Find Kicks \n "<<oldSpell<<endl;
+		  cout<<"Find Kicks \n "<<oldSpell<<endl<<endl;
 		  }
 	}
 class basicKick:public Kick
@@ -121,47 +118,51 @@ class powerKick:public Kick
 {
 	};	
 
+class Hero: public Kick,Spell
+{  public:
+	Hero(float damages,float stamina,string nameKik,float object,float skill,float damage,int level,string nameSpell,float power,float freeCell):Kick(damages,stamina,nameKik,object,skill),Spell(damage,level,nameSpell,power,freeCell){};
+	
+	};
 
 
-
-class Mage:public Kick,Spell,Hero
+class Mage:public Hero
 
 {public:
-	Mage(float damage,float damages,float stamina,string nameKik,float power,float object,int level,float skill,string nameSpell,float freeCell):Kick(damages,stamina,nameKik,object,skill),Spell(damage,level,nameSpell,power,freeCell){};
+	Mage(float damages,float stamina,string nameKik,float object,float skill,float damage,int level,string nameSpell,float power,float freeCell):Hero(damages,stamina,nameKik,object,skill,damage,level,nameSpell,power,freeCell){};
 void Out(){cout<<"Kick is used"<<endl;}
 void wOut(){cout<<"Your spell have 73 damage for enemy"<<endl;}
 void Mad(){cout<<"Spell is used"<<endl<<endl;}
 };
 
-class Warior:public Kick,public Spell,public Hero
+class Warior:public Hero
 {public:
-	Warior(float damage,float damages,float stamina,string nameKik,float powers,float object,int level,float skill,string nameSpell,float freeCell):Kick(damages,stamina,nameKik,object,skill),Spell(damage,level,nameSpell,power,freeCell){};
+	Warior(float damages,float stamina,string nameKik,float object,float skill,float damage,int level,string nameSpell,float power,float freeCell):Hero(damages,stamina,nameKik,object,skill,damage,level,nameSpell,power,freeCell){};
 
 void Out(){cout<<"Iam Hill"<<endl;}
 void wOut(){cout<<"Your spells level = 3 "<<endl;}
 void Med(){cout<<"Spell is used"<<endl<<endl;}
 };
 
-class Warlock:public Kick,public Spell,public Hero
+class Warlock:public Hero
 {public:
-	Warlock(float damage,float damages,float stamina,string nameKik,float powers,float object,int level,float skill,string nameSpell,float freeCell):Kick(damages,stamina,nameKik,object,skill),Spell(damage,level,nameSpell,power,freeCell){};
+	Warlock(float damages,float stamina,string nameKik,float object,float skill,float damage,int level,string nameSpell,float power,float freeCell):Hero(damages,stamina,nameKik,object,skill,damage,level,nameSpell,power,freeCell){};
 void Out () {cout<<"Mind hunting"<<endl;}
 void wOut() {cout<<"Your spell has name ICE WALL"<<endl;}
 void Met () {cout<<"Spell is used"<<endl<<endl;}
 };
 
-class Theif:public Kick,public Spell,public Hero
+class Theif:public Hero
 {public:
-	Theif(float damage,float damages,float stamina,string nameKik,float powers,float object,int level,float skill,string nameSpell,float freeCell):Kick(damages,stamina,nameKik,object,skill),Spell(damage,level,nameSpell,power,freeCell){};
-void Out () {cout<<"Mind hunting"<<endl;}
-void wOut() {cout<<"Your spell has name ICE WALL"<<endl;}
-void Met () {cout<<"Spell is used"<<endl<<endl;}
+	Theif(float damages,float stamina,string nameKik,float object,float skill,float damage,int level,string nameSpell,float power,float freeCell):Hero(damages,stamina,nameKik,object,skill,damage,level,nameSpell,power,freeCell){};
+void Out () {cout<<"Getting to work"<<endl;}
+void wOut() {cout<<"Your spell has name FireBall"<<endl;}
+void Mes () {cout<<"Kick is used"<<endl<<endl;}
 };
 
 
 int main()
 {
-Mage m1(1,2,3,"cor",4,5,6,7,"sos",8);
+Mage m1(1,2,"cor",3,4,5,6,"sos",7,8);
 m1.Out();
 m1.wOut();
 m1.Mad();
@@ -173,14 +174,19 @@ Kick k1(5,0,"Kiborg");
 k1.Searchs();
 
 
-Warior h1(1,2,3,"cor",4,5,6,7,"sos",8);
+Warior h1(1,2,"cor",3,4,5,6,"sos",7,8);
 h1.Out();
 h1.wOut();
 h1.Med();
 
-Warlock hh1(1,2,3,"cor",4,5,6,7,"sos",8);
+Warlock hh1(1,2,"cor",3,4,5,6,"sos",7,8);
 hh1.Out();
 hh1.wOut();
 hh1.Met();	
+
+Theif t1(1,2,"cor",3,4,5,6,"sos",7,8);
+t1.Out();
+t1.wOut();
+t1.Mes();
 	return 0;
 }
