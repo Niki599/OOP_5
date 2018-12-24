@@ -161,7 +161,7 @@ void Met () {cout<<"Spell is used"<<endl<<endl;}
 
 int main()
 {
-Mage m1(1,2,3,"pis",4,5,6,7,"sos",8);
+Mage m1(1,2,3,"cor",4,5,6,7,"sos",8);
 m1.Out();
 m1.wOut();
 m1.Mad();
@@ -173,12 +173,12 @@ Kick k1(5,0,"Kiborg");
 k1.Searchs();
 
 
-Warior h1(1,2,3,"pis",4,5,6,7,"sos",8);
+Warior h1(1,2,3,"cor",4,5,6,7,"sos",8);
 h1.Out();
 h1.wOut();
 h1.Med();
 
-Warlock hh1(1,2,3,"pis",4,5,6,7,"sos",8);
+Warlock hh1(1,2,3,"cor",4,5,6,7,"sos",8);
 hh1.Out();
 hh1.wOut();
 hh1.Met();	
